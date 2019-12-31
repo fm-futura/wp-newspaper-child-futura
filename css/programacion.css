@@ -1,0 +1,114 @@
+#page-programacion-futura.programacion ul {
+    list-style: none;
+}
+#page-programacion-futura.programacion .semana{
+    text-align: center;
+    border-bottom: 5px solid #a81e7bff;
+    font-size: 0;
+    padding: 0;
+    display: flex;
+
+}
+#page-programacion-futura.programacion .semana.reduced {
+    display:none;
+}
+#page-programacion-futura.programacion .semana li {
+display: flex;
+flex-grow: 1;
+margin: 0;
+justify-content: center;
+    vertical-align: top;
+    background-color:#333333;
+    color:#999999;
+    font-size: 16px;
+    line-height: 40px;
+    cursor: pointer;
+}
+#page-programacion-futura.programacion .semana li:hover{
+    color:white;
+    background-color:#a81e7bff;
+}
+
+#page-programacion-futura.programacion #listado_programas {
+    display:none;
+}
+
+#page-programacion-futura.programacion .programas {
+    padding: 5px 0;
+    margin: 0;
+}
+#page-programacion-futura.programacion .programas > li {
+    margin-bottom: 5px;
+}
+#page-programacion-futura.programacion .programas > li:last-of-type {
+    margin-bottom: 0;
+}
+#page-programacion-futura.programacion .programas > li > header{
+    background-color: #f2f2f2;
+    color: #808080;
+    padding: 5px 10px 10px;
+    cursor: pointer;
+    min-height:67px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+#page-programacion-futura.programacion .programas > li > header > div {
+    display:inline-block;
+    vertical-align: middle;
+}
+#page-programacion-futura.programacion .programas > li > header > div h2{
+    font-size: 20px;
+    margin: 0;
+    line-height: 36px;
+    font-weight: bold;
+}
+#page-programacion-futura.programacion .programas > li > header > div .meta{
+    font-size:14px;
+    padding: 0;
+    line-height: 16px;
+}
+#page-programacion-futura.programacion .programas > li > header > div.plus_button {
+    display: none;
+    float:right;
+    vertical-align: middle;
+}
+#page-programacion-futura.programacion .programas > li > header > div.plus_button a {
+    font-size: 25px;
+    line-height: 57px;
+    color: #808080;
+    text-decoration: none;
+}
+
+#page-programacion-futura.programacion .programas > li > header:hover,
+#page-programacion-futura.programacion .programas > li.active > header{
+    background-color: #CCCCCC;
+    color: black;
+}
+
+#page-programacion-futura.programacion .programas > li article {
+    display: none;
+}
+#page-programacion-futura.programacion .programas > li article {
+    padding: 5px 10px;
+    margin: 5px 0;
+    border: 5px solid #CCCCCC;
+}
+#page-programacion-futura.programacion .programas > li article p {
+    font-size:14px;
+    color:#808080;
+}
+#page-programacion-futura.programacion .programas > li.active article{
+    display:block;
+}
+
+
+@media screen and (max-width:640px){
+    #page-programacion-futura.programacion .semana {
+        display:none;
+    }
+    #page-programacion-futura.programacion .semana.reduced {
+        display:block;
+    }
+
+}
+
