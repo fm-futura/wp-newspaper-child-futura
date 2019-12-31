@@ -6,3 +6,5 @@ function theme_enqueue_styles() {
     wp_enqueue_style('td-theme-child', get_stylesheet_directory_uri() . '/style.css', array('td-theme'), TD_THEME_VERSION . 'c', 'all' );
 
 }
+
+require_once('queries.php');
