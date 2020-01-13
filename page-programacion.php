@@ -1,6 +1,6 @@
 <?php
 
-wp_enqueue_style('page-programacion', get_template_directory_uri() . '/css/programacion.css');
+wp_enqueue_style('page-programacion', get_stylesheet_directory_uri() . '/css/programacion.css');
 locate_template('includes/wp_booster/td_single_template_vars.php', true);
 
 get_header();
