@@ -7,7 +7,7 @@
  */
 
 // Futura
-class td_module_mx5 extends td_module {
+class td_module_mx5 extends futura_td_module {
 
     function __construct($post, $module_atts = array(), $audiohome=FALSE) {
         parent::__construct($post, $module_atts, $audiohome);

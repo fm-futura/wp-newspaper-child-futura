@@ -1,7 +1,7 @@
 <?php
 // FUTURA
 
-class td_module_2 extends td_module {
+class td_module_2 extends futura_td_module {
 
     function __construct($post, $module_atts = array()) {
         //run the parrent constructor
@@ -23,7 +23,7 @@ class td_module_2 extends td_module {
 
 
             <div class="td-module-meta-info">
-		<?php echo futura_get_audiohome_player($this->post->ID); ?>
+                <?php echo futura_get_audiohome_player($this->post->ID); ?>
                 <?php echo $this->get_author();?>
                 <?php echo $this->get_date();?>
                 <?php echo $this->get_comments();?>

@@ -7,4 +7,10 @@ function theme_enqueue_styles() {
 
 }
 
+add_action( 'td_wp_booster_loaded', 'load_custom_modules');
+function load_custom_modules() {
+    require_once('includes/wp_booster/futura_td_module.php');
+}
+
+
 require_once('queries.php');

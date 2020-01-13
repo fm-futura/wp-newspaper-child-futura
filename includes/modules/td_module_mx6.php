@@ -6,7 +6,7 @@
  * Time: 10:05
  */
 
-class td_module_mx6 extends td_module {
+class td_module_mx6 extends futura_td_module {
 
 //Futura
     function __construct($post, $module_atts = array(), $audiohome=FALSE) {
