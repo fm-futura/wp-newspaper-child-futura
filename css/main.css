@@ -1,0 +1,75 @@
+.menu_futura, div.td-header-menu-wrap.td-header-menu-no-search.td-affix:not(#wp_futura_player_header):not(#wp_futura_social_icons) {
+  top: 0vh !important;
+  margin-top: 5vh !important;
+}
+
+@media(max-width: 600px) {
+  .menu_futura, div.td-header-menu-wrap.td-header-menu-no-search.td-affix:not(#wp_futura_player_header):not(#wp_futura_social_icons) {
+    top: 0vh !important;
+    margin-top: 10vh !important;
+  }
+}
+
+#wp_futura_player_header {
+  display: flex;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100vw;
+  z-index: 100000;
+}
+
+#wp_futura_player_header .wpb_wrapper {
+  margin: 0 !important;
+}
+
+#wp_futura_player_header .vc_column {
+  padding: 0 !important;
+}
+
+#wp_futura_player_header .widget {
+  margin: 0 !important;
+}
+
+.player__container {
+  flex-grow: 1;
+  min-width: 80vw;
+}
+
+.futura-social-icons {
+  height 5vh;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  border-top: 5px solid #282828;
+  background: #282828;
+}
+
+.futura-social-icons span {
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.futura-social-icons a {
+  color: #f6ec80ff !important;
+  margin-right: .75ex;
+  margin-left: .75ex;
+  line-height: 3vh!important;
+}
+
+.futura-social-icons .td-icon-font {
+  font-size: 3vh!important;
+}
+
+div.td-main-content-wrap {
+  /* margin-top: 10vh; */
+}
+
+div.td-header-menu-wrap.td-header-menu-no-search {
+  background: #282828;
+}
