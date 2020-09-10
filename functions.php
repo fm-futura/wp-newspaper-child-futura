@@ -17,4 +17,38 @@ function load_custom_modules() {
 }
 
 
+add_action( 'widgets_init', 'register_futura_sidebars' );
+function register_futura_sidebars() {
+    register_sidebar([
+        'id'            => 'portada-1',
+        'name'          => 'Widgets en portada 1',
+        'description'   => 'Aparece en la portada entre los posts, primera.',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+    register_sidebar([
+        'id'            => 'portada-2',
+        'name'          => 'Widgets en portada 2',
+        'description'   => 'Aparece en la portada entre los posts, segunda.',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+    register_sidebar([
+        'id'            => 'portada-3',
+        'name'          => 'Widgets en portada 3 (pequeña)',
+        'description'   => 'Aparece en la portada entre los posts, tercera, pequeña.',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+}
+
 require_once('queries.php');
