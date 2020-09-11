@@ -1,1 +1,7 @@
+.td-header-mobile-wrap {
+  display: none !important;
+}
 
+.td-header-desktop-wrap {
+  display: block !important;
+}
