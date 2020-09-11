@@ -57,7 +57,7 @@
             $hide_class = '';
 
             ?>
-            <div class="td-header-template-wrap" style="position: relative">
+            <div class="td-header-template-wrap" id="header-futura" data-turbolinks-permanent style="position: relative">
                 <?php
 
                 if ( empty( $tdc_header_template_content['tdc_header_mobile'] ) ) {
