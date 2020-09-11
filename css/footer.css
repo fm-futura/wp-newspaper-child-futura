@@ -1,0 +1,13 @@
+.futura-footer-widget-column {
+    min-width: 25%;
+    min-height: 10vh;
+    margin-top: 1em;
+    background: white;
+    box-shadow: .25em .25em .5em;
+}
+
+.futura-footer-widget-column iframe {
+    display: block !important;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -5,6 +5,7 @@ function theme_enqueue_styles() {
     wp_enqueue_style('td-theme', get_template_directory_uri() . '/style.css', '', TD_THEME_VERSION, 'all' );
     wp_enqueue_style('td-theme-child', get_stylesheet_directory_uri() . '/style.css', array('td-theme'), TD_THEME_VERSION . 'c', 'all' );
     wp_enqueue_style('td-theme-child-main', get_stylesheet_directory_uri() . '/css/main.css', array('td-theme'), TD_THEME_VERSION . 'c', 'all' );
+    wp_enqueue_style('td-theme-child-main-footer', get_stylesheet_directory_uri() . '/css/footer.css', array('td-theme'), TD_THEME_VERSION . 'c', 'all' );
 
     if (is_user_logged_in()) {
       wp_enqueue_style('td-theme-child-main-admin', get_stylesheet_directory_uri() . '/css/main-admin.css', array('td-theme'), TD_THEME_VERSION . 'c', 'all' );
@@ -45,6 +46,37 @@ function register_futura_sidebars() {
         'description'   => 'Aparece en la portada entre los posts, tercera, pequeña.',
         'before_widget' => '',
         'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+
+    register_sidebar([
+        'id'            => 'footer-redes-1',
+        'name'          => 'Widgets footer, redes. Primera.',
+        'description'   => 'Aparece en el footer, primera',
+        'before_widget' => '<div class="futura-footer-widget-column">',
+        'after_widget'  => '</div>',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+    register_sidebar([
+        'id'            => 'footer-redes-2',
+        'name'          => 'Widgets footer, redes. Segunda.',
+        'description'   => 'Aparece en el footer, segunda',
+        'before_widget' => '<div class="futura-footer-widget-column">',
+        'after_widget'  => '</div>',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+    register_sidebar([
+        'id'            => 'footer-redes-3',
+        'name'          => 'Widgets footer, redes. Tercera.',
+        'description'   => 'Aparece en el footer, tercera',
+        'before_widget' => '<div class="futura-footer-widget-column">',
+        'after_widget'  => '</div>',
         'before_title'  => '',
         'after_title'   => '',
     ]);
