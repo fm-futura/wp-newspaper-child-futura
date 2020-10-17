@@ -5,3 +5,20 @@
 .td-header-desktop-wrap {
   display: block !important;
 }
+
+.block-title > span {
+  width: 100%;
+}
+
+.entry-title {
+  font-family: 'Suez One' !important;
+}
+
+article, .td-excerpt {
+  font-family: 'Robto' !important;
+}
+
+.single .td-main-content-wrap,
+.page   .td-main-content-wrap {
+  background-image: url("../img/fondo_futura_lineas.png");
+}
