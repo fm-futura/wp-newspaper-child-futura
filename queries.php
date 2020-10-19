@@ -109,3 +109,47 @@ function query_programacion() {
 
     return new WP_Query($args);
 }
+
+function query_programacion_by_days() {
+    wp_reset_postdata();
+    $args = array(
+        'post_type' => 'programas',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'order' => 'ASC',
+        'orderby' => 'meta_value',
+        'meta_key' => 'horario_inicio'
+    );
+
+    $posts = get_posts($args);
+
+    // dia -> post
+    $result = [
+      1 => [],
+      2 => [],
+      3 => [],
+      4 => [],
+      5 => [],
+      6 => [],
+      7 => [],
+    ];
+
+
+    foreach ($posts as $post) {
+      $pod = pods('programas', $post->ID);
+      $programacion = [
+        'dias' => $pod->field('dia'),
+        'transmisiones' => $pod->field('transmisiones'),
+        'horario_inicio' => $pod->field('horario_inicio'),
+        'horario_finalizacion' => $pod->field('horario_finalizacion'),
+        'categoria' => $pod->field('categoria'),
+      ];
+      $post->programacion = $programacion;
+
+      foreach ($programacion['dias'] as $dia) {
+        $result[$dia][] = $post;
+      }
+    }
+
+    return $result;
+}
