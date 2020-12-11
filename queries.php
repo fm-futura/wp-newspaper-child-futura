@@ -146,7 +146,12 @@ function query_programacion_by_days() {
       ];
       $post->programacion = $programacion;
 
-      foreach ($programacion['dias'] as $dia) {
+      $dias = $programacion['dias'];
+      if (!is_array($dias)) {
+        $dias = [$dias];
+      }
+
+      foreach ($dias as $dia) {
         $result[$dia][] = $post;
       }
     }
