@@ -21,6 +21,16 @@ function load_custom_modules() {
 add_action( 'widgets_init', 'register_futura_sidebars' );
 function register_futura_sidebars() {
     register_sidebar([
+        'id'            => 'portada-tags',
+        'name'          => 'Widgets en portada - etiquetas',
+        'description'   => 'Aparece en la portada, lista de etiquetas y otros',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+    register_sidebar([
         'id'            => 'portada-1',
         'name'          => 'Widgets en portada 1',
         'description'   => 'Aparece en la portada entre los posts, primera.',
@@ -44,6 +54,16 @@ function register_futura_sidebars() {
         'id'            => 'portada-3',
         'name'          => 'Widgets en portada 3 (pequeña)',
         'description'   => 'Aparece en la portada entre los posts, tercera, pequeña.',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+    register_sidebar([
+        'id'            => 'portada-4',
+        'name'          => 'Widgets en portada 4',
+        'description'   => 'Aparece en la portada entre los posts, cuarta, antes de "Seguinos en redes"',
         'before_widget' => '',
         'after_widget'  => '',
         'before_title'  => '',
