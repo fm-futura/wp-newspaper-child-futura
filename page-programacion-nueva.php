@@ -20,7 +20,7 @@ $today = date('N');
     var schedule_data = <?php echo wp_json_encode($schedule_data); ?>;
 </script>
 
-<div class="td-main-content-wrap td-container-wrap">
+<div class="td-main-content-wrap td-container-wrap page-programacion">
 <div class="tdc-row stretch_row_content_no_space td-stretch-content">
 <div class="vc_row wpb_row td-pb-row">
 <div class="vc_column wpb_column vc_column_container tdc-column td-pb-span12">
@@ -40,9 +40,9 @@ foreach ($schedule_data as $day => $data) {
                     <!-- <span class="show-time-finish"> <? echo $show_data->horario_finalizacion; ?> </span> -->
                 </div>
 
-                <div class="show-title">
+                <a class="show-title" target="_blank" href="<? echo $show_data->guid; ?>">
                     <? echo $show_data->post_title; ?>
-                </div>
+                </a>
 
             </div>
         <? } ?>
@@ -112,6 +112,7 @@ function futura_schedule_update_current_playing_show() {
 }
 
 futura_schedule_update_current_playing_show();
+setInterval(futura_schedule_update_current_playing_show, 60 * 1000);
 </script>
 
 <?php
