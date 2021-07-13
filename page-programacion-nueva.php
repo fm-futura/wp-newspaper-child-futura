@@ -74,7 +74,7 @@ function futura_schedule_set_current_day(day) {
 }
 
 function futura_schedule_set_current_show_by_id(show_id, day=null) {
-    let parent = document || document.querySelector(`[data-day="${day}"]`);
+    let parent = document.querySelector(`[data-day="${day}"]`) || document;
 
     document.querySelectorAll(`[data-show-id]:not([data-show-id="${show_id}"])`)
         .forEach((e) => {
@@ -103,12 +103,10 @@ function futura_schedule_get_current_playing_show() {
 function futura_schedule_update_current_playing_show() {
     let show = futura_schedule_get_current_playing_show();
     let current_day = moment().day();
+    let show_id = show?.ID;
 
-    if (!show) {
-        return;
-    }
-
-    futura_schedule_set_current_show_by_id(show.ID, current_day);
+    futura_schedule_set_current_day(current_day);
+    futura_schedule_set_current_show_by_id(show_id, current_day);
 }
 
 futura_schedule_update_current_playing_show();
