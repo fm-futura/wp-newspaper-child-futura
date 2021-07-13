@@ -94,7 +94,14 @@ function futura_schedule_get_current_playing_show() {
     let show = Object.values(schedule_data[current_day] || {})
         .find((show) => {
             let show_start = moment(show.programacion.horario_inicio, 'HH:mm:ss');
-            let show_end = moment(show.programacion.horario_finalizacion, 'HH:mm:ss');
+            let horario_finalizacion = show.programacion.horario_finalizacion;
+            let show_end = moment(horario_finalizacion, 'HH:mm:ss');
+
+            // XXX ugly hack to fix midnight rollover
+            if (horario_finalizacion == '00:00:00') {
+                show_end.add(1, 'days');
+            }
+
             return now.isBetween(show_start, show_end);
         });
     return show;
