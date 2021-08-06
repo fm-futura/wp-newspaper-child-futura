@@ -7,136 +7,117 @@ get_header();
 
 global $loop_module_id, $loop_sidebar_position, $post, $td_sidebar_position;
 
-$td_mod_single = new td_module_single($post);
-
+$schedule_data = query_programacion_by_days();
+$day_name_map = [
+    'none',
+    'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'
+];
+$today = date('N');
 
 ?>
-<div class="td-main-content-wrap td-container-wrap">
 
-    <div class="td-container td-post-template-default <?php echo $td_sidebar_position; ?>">
-        <div class="td-crumb-container"><?php echo td_page_generator::get_single_breadcrumbs($td_mod_single->title); ?></div>
-
-        <div class="td-pb-row">
-        <div class="td-pb-span8 td-main-content" role="main">
-            <div class="td-ss-main-content">
-            <div class="container-fluid td-post-content">
-
-                <div class="clearfix row-fluid">
-
-                <div id="page-programacion-futura" class="programacion span8 clearfix" role="main">
-                    <ul class="semana span12">
-                    <li data-dia="1">Lunes</li>
-                    <li data-dia="2">Martes</li>
-                    <li data-dia="3">Miércoles</li>
-                    <li data-dia="4">Jueves</li>
-                    <li data-dia="5">Viernes</li>
-                    <li data-dia="6">Sábado</li>
-                    <li data-dia="7">Domingo</li>
-                    </ul>
-                    <ul class="semana reduced span12">
-                    <li data-dia="1">Lun</li>
-                    <li data-dia="2">Mar</li>
-                    <li data-dia="3">Mié</li>
-                    <li data-dia="4">Jue</li>
-                    <li data-dia="5">Vie</li>
-                    <li data-dia="6">Sáb</li>
-                    <li data-dia="7">Dom</li>
-                    </ul>
-                    <ul id="listado_programas">
-                    <?php
-                    $query = query_programacion();
-                    if ($query->have_posts()) {
-                        while ($query->have_posts()) {
-                        $query->the_post();
-                        $pod = pods('programas', get_the_ID());
-                        $dias = '';
-
-                        if (is_array($pod->field('dia'))) {
-                            foreach ($pod->field('dia') as $dia) {
-                            $dias .= $dia.',';
-                            }
-                        }else{
-                            foreach ($pod->field('dia') as $dia) {
-                            $dias .= $dia.',';
-                            }
-                        }
-
-                        ?>
-                        <li data-dia="<?php echo $dias; ?>" data-content="<?php if(get_the_content()){echo true;} ?>">
-                            <header class="info_container">
-                            <div>
-                                <h2><?php the_title(); ?></h2>
-                                <div class="meta">
-                                <span class="transm"><?php echo $pod->field('transmisiones'); ?></span><?php echo $pod->field('horario_inicio') ?> a <?php echo $pod->field('horario_finalizacion') ?> hs / <?php echo $pod->field('categoria') ?>
-                                </div>
-                            </div>
-                            <?php if(get_the_content()){
-                                ?>
-                            <div class="plus_button">
-                                <a class="mdi mdi-plus"></a>
-                            </div>
-                                <?php
-                            } ?>
-                            </header>
-                            <article class="programa_info" class="true">
-                            <?php the_content(); ?>
-                            </article>
-                        </li>
-                        <?php
-                        }
-                    }
-                    ?>
-                    </ul>
-                    <ul class="programas span12" data-dia="1"></ul>
-                    <ul class="programas span12" data-dia="2"></ul>
-                    <ul class="programas span12" data-dia="3"></ul>
-                    <ul class="programas span12" data-dia="4"></ul>
-                    <ul class="programas span12" data-dia="5"></ul>
-                    <ul class="programas span12" data-dia="6"></ul>
-                    <ul class="programas span12" data-dia="7"></ul>
-                </div> <!-- end #main -->
-                </div> <!-- end #content -->
-            </div>
-            </div>
-        </div>
-
-        <div class="td-pb-span4 td-main-sidebar" role="complementary">
-            <div class="td-ss-main-sidebar">
-            <?php get_sidebar(); ?>
-            </div>
-        </div>
-        </div> <!-- /.td-pb-row -->
-    </div> <!-- /.td-container -->
-</div> <!-- /.td-main-content-wrap -->
 <script>
-var $=jQuery;
-$('ul.programas').hide();
-$('#listado_programas > li').each(function () {
-    var programa = $(this);
-    var dias = $(this).data('dia').split(',');
-    $.each(dias, function (index, value) {
-      if (!value) {
-          return;
-      }
-      $('.programas[data-dia=' + value + ']').append(programa.clone());
-    });
-});
+    var schedule_data = <?php echo wp_json_encode($schedule_data); ?>;
+</script>
 
-$('#page-programacion-futura.programacion .programas > li[data-content=1] header').click(function (e) {
-    e.preventDefault();
-    if ($(this).closest('li').hasClass('active')) {
-        $('#page-programacion-futura.programacion .programas > li').removeClass('active');
-    } else {
-        $('page-programacion-futuramain.programacion .programas > li').removeClass('active');
-        $(this).parent('li').addClass('active');
-    }
-});
-$('#page-programacion-futura.programacion .semana li').click(function () {
-    var dia = $(this).data('dia');
-    $('ul.programas').hide();
-    $('ul.programas[data-dia=' + dia + ']').show();
-});
-$('ul.programas[data-dia=1]').show();
+<div class="td-main-content-wrap td-container-wrap page-programacion">
+<div class="tdc-row stretch_row_content_no_space td-stretch-content">
+<div class="vc_row wpb_row td-pb-row">
+<div class="vc_column wpb_column vc_column_container tdc-column td-pb-span12">
+
+<div class="futura-programacion-nueva">
+
+<?php
+foreach ($schedule_data as $day => $data) {
+?>
+    <div class="programacion-day-container <? if ($day == $today) { echo 'current'; } ?>" data-day="<? echo $day; ?>">
+        <div class="day"> <? echo $day_name_map[$day]; ?> </div>
+        <div class="day-shows">
+        <? foreach ($data as $show_data) { ?>
+            <div class="show-entry" data-show-id="<? echo $show_data->ID; ?>" data-time-start="<? echo $show_data->horario_inicio; ?>" data-time-finish="<? echo $show_data->horario_finalizacion; ?>">
+                <div class="show-time">
+                    <span class="show-time-start">  <? echo $show_data->horario_inicio;       ?> </span>
+                    <!-- <span class="show-time-finish"> <? echo $show_data->horario_finalizacion; ?> </span> -->
+                </div>
+
+                <a class="show-title" target="_blank" href="<? echo $show_data->guid; ?>">
+                    <? echo $show_data->post_title; ?>
+                </a>
+
+            </div>
+        <? } ?>
+        </div>
+    </div>
+
+<?php
+}
+?>
+
+</div>
+
+</div>
+</div>
+</div>
+</div> <!-- /.td-main-content-wrap -->
+
+<script>
+function futura_schedule_set_current_day(day) {
+    document.querySelectorAll(`[data-day]:not([data-day="${day}"])`)
+        .forEach((e) => {
+            e.classList.remove('current');
+        });
+
+    document.querySelectorAll(`[data-day="${day}"]`)
+        .forEach((e) => {
+            e.classList.add('current');
+        });
+}
+
+function futura_schedule_set_current_show_by_id(show_id, day=null) {
+    let parent = document.querySelector(`[data-day="${day}"]`) || document;
+
+    document.querySelectorAll(`[data-show-id]:not([data-show-id="${show_id}"])`)
+        .forEach((e) => {
+            e.classList.remove('current');
+        });
+
+    parent.querySelectorAll(`[data-show-id="${show_id}"]`)
+        .forEach((e) => {
+            e.classList.add('current');
+        });
+}
+
+function futura_schedule_get_current_playing_show() {
+    let now = moment();
+    let current_day = now.day();
+
+    let show = Object.values(schedule_data[current_day] || {})
+        .find((show) => {
+            let show_start = moment(show.programacion.horario_inicio, 'HH:mm:ss');
+            let horario_finalizacion = show.programacion.horario_finalizacion;
+            let show_end = moment(horario_finalizacion, 'HH:mm:ss');
+
+            // XXX ugly hack to fix midnight rollover
+            if (horario_finalizacion == '00:00:00') {
+                show_end.add(1, 'days');
+            }
+
+            return now.isBetween(show_start, show_end);
+        });
+    return show;
+}
+
+function futura_schedule_update_current_playing_show() {
+    let show = futura_schedule_get_current_playing_show();
+    let current_day = moment().day();
+    let show_id = show?.ID;
+
+    futura_schedule_set_current_day(current_day);
+    futura_schedule_set_current_show_by_id(show_id, current_day);
+}
+
+futura_schedule_update_current_playing_show();
+setInterval(futura_schedule_update_current_playing_show, 60 * 1000);
 </script>
 
 <?php
