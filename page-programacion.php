@@ -89,7 +89,8 @@ function futura_schedule_set_current_show_by_id(show_id, day=null) {
 
 function futura_schedule_get_current_playing_show() {
     let now = moment();
-    let current_day = now.day();
+    // js days go from 0 to 6, php 1 to 7. 7 being Sun.
+    let current_day = now.day() || 7;
 
     let show = Object.values(schedule_data[current_day] || {})
         .find((show) => {
@@ -109,7 +110,8 @@ function futura_schedule_get_current_playing_show() {
 
 function futura_schedule_update_current_playing_show() {
     let show = futura_schedule_get_current_playing_show();
-    let current_day = moment().day();
+    // js days go from 0 to 6, php 1 to 7. 7 being Sun.
+    let current_day = moment().day() || 7;
     let show_id = show?.ID;
 
     futura_schedule_set_current_day(current_day);
