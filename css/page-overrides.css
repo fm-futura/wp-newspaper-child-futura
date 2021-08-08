@@ -1,0 +1,35 @@
+.page-id-20109 .td-crumb-container,
+.page-id-20109 .entry-title.td-page-title,
+.page-id-5 .td-crumb-container,
+.page-id-5 .entry-title.td-page-title
+{
+  display: none;
+}
+
+.page .td-page-content {
+  font-family: 'Roboto' !important;
+
+}
+
+.page .td-page-content h1 {
+  font-family: 'Suez One' !important;
+}
+
+.page .wp-block-pullquote {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page .tagdiv-type .wp-block-pullquote blockquote p, .tagdiv-type .td_pull_quote p {
+  font-size: 2rem !important;
+  line-height: initial !important;
+}
+
+.page .td-container.tdc-content-wrap {
+  min-width: 70%;
+}
+
+.page.quienes-somos .wp-block-media-text__content {
+  margin-top: auto;
+  margin-bottom: auto;
+}

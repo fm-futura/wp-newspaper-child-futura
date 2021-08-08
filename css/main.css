@@ -1,3 +1,4 @@
+/*
 .td-header-mobile-wrap {
   display: none !important;
 }
@@ -5,6 +6,7 @@
 .td-header-desktop-wrap {
   display: block !important;
 }
+*/
 
 .block-title > span {
   width: 100%;
@@ -15,14 +17,13 @@
 }
 
 article, .td-excerpt {
-  font-family: 'Robto' !important;
+  font-family: 'Roboto' !important;
 }
 
 .single .td-main-content-wrap,
 .page   .td-main-content-wrap {
   background-image: url("../img/fondo_futura_lineas.png");
 }
-
 
 .td-main-content-wrap > div,  td-container-wrap > div {
   background: white;
@@ -33,3 +34,8 @@ article, .td-excerpt {
   margin-right: auto;
   max-width: 75vw;
 }
+
+.tdb_header_menu .tdb-menu > li > a {
+  font-family: 'Bebas Neue' !important;
+}
+

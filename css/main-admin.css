@@ -1,0 +1,4 @@
+.wp-block blockquote p, .wp-block .wp-block-freeform blockquote p {
+  text-transform: unset;
+}
+
