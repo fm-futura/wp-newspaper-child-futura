@@ -1,7 +1,9 @@
 .page-id-20109 .td-crumb-container,
 .page-id-20109 .entry-title.td-page-title,
 .page-id-5 .td-crumb-container,
-.page-id-5 .entry-title.td-page-title
+.page-id-5 .entry-title.td-page-title,
+.page-id-7 .td-crumb-container,
+.page-id-7 .entry-title.td-page-title
 {
   display: none;
 }
