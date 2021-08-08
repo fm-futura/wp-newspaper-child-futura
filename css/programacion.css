@@ -39,6 +39,32 @@
   text-orientation: mixed;
 }
 
+@media (max-width:500px){
+  .programacion-day-container {
+    flex-direction: column;
+  }
+
+  .programacion-day-container .day {
+    width: unset !important;
+    padding: 0 !important;
+  }
+
+  .programacion-day-container.current .day {
+    margin-bottom: 2rem;
+  }
+
+  .programacion-day-container.current .day {
+    font-size: 4em;
+    writing-mode: unset;
+    transform: unset;
+    text-orientation: unset;
+  }
+
+  .programacion-day-container .day-shows {
+    margin-top: 1rem;
+  }
+}
+
 .programacion-day-container .day,
 .programacion-day-container .day-shows {
   align-self: center;
