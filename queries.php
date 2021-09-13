@@ -111,7 +111,6 @@ function query_programacion() {
 }
 
 function query_programacion_by_days() {
-    wp_reset_postdata();
     $args = array(
         'post_type' => 'programas',
         'posts_per_page' => -1,
@@ -121,7 +120,8 @@ function query_programacion_by_days() {
         'meta_key' => 'horario_inicio'
     );
 
-    $posts = get_posts($args);
+    $query = new WP_Query($args);
+    $posts = $query->posts;
 
     // dia -> post
     $result = [
@@ -154,6 +154,24 @@ function query_programacion_by_days() {
       foreach ($dias as $dia) {
         $result[$dia][] = $post;
       }
+    }
+
+    foreach ($result as $dia => $posts) {
+        usort($posts, function ($post_a, $post_b) {
+            $a = $post_a->programacion['horario_inicio'];
+            $b = $post_b->programacion['horario_inicio'];
+            if ($a == '00:00:00') { return 1; }
+            if ($b == '00:00:00') { return -1; }
+            if ($a > $b) {
+                return 1;
+            } else if ($a < $b) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+
+        $result[$dia] = $posts;
     }
 
     return $result;
