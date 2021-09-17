@@ -39,3 +39,13 @@ article, .td-excerpt {
   font-family: 'Bebas Neue' !important;
 }
 
+.tdb-mobile-menu-button {
+  background-image: url("../img/logo_futura_nuevo-300x300.png");
+  background-size: cover;
+
+}
+
+.tdb-mobile-menu-button i {
+  opacity: 0;
+  visibility: hidden;
+}
