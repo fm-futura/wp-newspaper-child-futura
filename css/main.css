@@ -49,3 +49,15 @@ article, .td-excerpt {
   opacity: 0;
   visibility: hidden;
 }
+
+.header-futura-mobile {
+  display: none;
+}
+
+@media(max-width: 767px) {
+  .header-futura-mobile {
+    display: block;
+    padding-top: .2rem;
+    padding-bottom: .2rem;
+  }
+}

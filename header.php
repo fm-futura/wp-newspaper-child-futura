@@ -111,6 +111,10 @@
                 <div class="td-header-desktop-sticky-wrap tdc-zone-sticky-invisible tdc-zone-sticky-inactive" style="display: none">
                     <?php echo do_shortcode( $shortcode ) ?>
                 </div>
+
+                <div class="header-futura-mobile">
+                    <?php echo do_shortcode('[futura-social-icons no-logo=1]') ?>
+                </div>
             </div>
             <?php
 
