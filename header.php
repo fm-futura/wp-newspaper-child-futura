@@ -113,7 +113,7 @@
                 </div>
 
                 <div class="header-futura-mobile">
-                    <?php echo do_shortcode('[futura-social-icons no-logo=1]') ?>
+                    <?php echo do_shortcode('[futura-social-icons]') ?>
                 </div>
             </div>
             <?php
