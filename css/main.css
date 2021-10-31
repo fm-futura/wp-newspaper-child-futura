@@ -62,3 +62,7 @@ article, .td-excerpt {
     display: none;
   }
 }
+
+.wp-block-button:not(.is-style-outline) .wp-block-button__link {
+  line-height: 40px !important;
+}
