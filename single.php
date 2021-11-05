@@ -4,6 +4,10 @@
     $content_width = 1068;
 ?>
 
+    <div>
+        <?php dynamic_sidebar('posts-1'); ?>
+    </div>
+
     <div class="td-main-content-wrap td-container-wrap">
         <div class="td-container">
             <div class="td-crumb-container">

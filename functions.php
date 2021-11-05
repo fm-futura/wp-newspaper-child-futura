@@ -78,6 +78,17 @@ function register_futura_sidebars() {
 
 
     register_sidebar([
+        'id'            => 'posts-1',
+        'name'          => 'Widgets en posts 1',
+        'description'   => 'Aparece en los posts',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '',
+        'after_title'   => '',
+    ]);
+
+
+    register_sidebar([
         'id'            => 'footer-redes-1',
         'name'          => 'Widgets footer, redes. Primera.',
         'description'   => 'Aparece en el footer, primera',
