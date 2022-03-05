@@ -40,7 +40,7 @@ foreach ($schedule_data as $day => $data) {
                     <!-- <span class="show-time-finish"> <? echo $show_data->horario_finalizacion; ?> </span> -->
                 </div>
 
-                <a class="show-title" target="_blank" href="<? echo $show_data->guid; ?>">
+                <a class="show-title" target="_blank" href="<? echo $show_data->website ?? $show_data->guid; ?>">
                     <? echo $show_data->post_title; ?>
                 </a>
 

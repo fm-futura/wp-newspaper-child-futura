@@ -143,6 +143,7 @@ function query_programacion_by_days() {
         'horario_inicio' => $pod->field('horario_inicio'),
         'horario_finalizacion' => $pod->field('horario_finalizacion'),
         'categoria' => $pod->field('categoria'),
+        'website' => $pod->field('website'),
       ];
       $post->programacion = $programacion;
 

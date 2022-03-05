@@ -13,6 +13,7 @@ while ($query->have_posts()) {
         'dia' => $pod->field('dia'),
         'horario_inicio' => $pod->field('horario_inicio'),
         'horario_finalizacion' => $pod->field('horario_finalizacion'),
+        'website' => $pod->field('website'),
     );
     $result[] = $programa;
 }
